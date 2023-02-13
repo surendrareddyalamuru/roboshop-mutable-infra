@@ -1,3 +1,3 @@
 vpc:
-    source:  "github.com/surendrareddyalamuru/tf-module-vpc"
+    source:  "https://github.com/surendrareddyalamuru/tf-module-vpc"
     version: "1.0.0"
