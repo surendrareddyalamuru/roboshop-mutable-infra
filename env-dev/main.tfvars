@@ -21,10 +21,11 @@ vpc = {
     }
     public_subnets = {
       public = {
-        cidr_block = [ "10.0.255.0/24", "10.0.254.0/24" ]
-        name = "public"
-        attach_to = "igw"
+        cidr_block = ["10.0.255.0/24", "10.0.254.0/24"]
+        name       = "public"
+        attach_to  = "igw"
       }
+    }
     subnet_availability_zones = ["us-east-1a", "us-east-1b"]
   }
 }
