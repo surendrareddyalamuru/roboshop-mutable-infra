@@ -3,6 +3,4 @@ module "vpc" {
   for_each = var.vpc
   env = var.env
   management_vpc = var.management_vpc
-  private_subnets = each.value.private_subnets
-  public_subnets = each.value.public_subnets
 }
