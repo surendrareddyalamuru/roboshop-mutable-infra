@@ -1,3 +1,3 @@
 locals {
-  private_subnets      = { for k, v in module.vpc.private_subnets : "subnets" => v.subnets }
+  private_subnets      = lookup({ for k, v in module.vpc.private_subnets : "subnets" => v.subnets }, "subnets", null)
 }
