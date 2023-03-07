@@ -12,6 +12,6 @@ module "vpc" {
 #}
 
 
-output "apps_private_subnets" {
+output "private_subnets" {
   value = local.private_subnets
 }
