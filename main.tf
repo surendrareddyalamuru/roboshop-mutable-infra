@@ -9,10 +9,10 @@ module "docdb" {
   source = "github.com/surendrareddyalamuru/tf-module-docdb"
   docdb = var.docdb
   env = var.env
-  subnets = local.database_private_subnets[0].id
+  subnets = local.database_private_subnets[*].id
 }
 
 
 #output "database_private_subnets" {
-#  value = local.database_private_subnets[0].id
+#  value = local.database_private_subnets[*].id
 #}
