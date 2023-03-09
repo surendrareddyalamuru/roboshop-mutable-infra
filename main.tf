@@ -14,5 +14,5 @@ module "vpc" {
 
 
 output "database_private_subnets" {
-  value = local.database_private_subnets
+  value = local.database_private_subnets[0].id
 }
