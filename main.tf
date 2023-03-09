@@ -5,13 +5,14 @@ module "vpc" {
   management_vpc = var.management_vpc
 }
 
-#module "docdb" {
-#  source = "github.com/surendrareddyalamuru/tf-module-docdb"
-#  docdb = var.docdb
-#  env = var.env
-#}
-
-
-output "app_private_subnets" {
-  value = local.app_private_subnets[0].id
+module "docdb" {
+  source = "github.com/surendrareddyalamuru/tf-module-docdb"
+  docdb = var.docdb
+  env = var.env
+  subnets = local.database_private_subnets[0].id
 }
+
+
+#output "app_private_subnets" {
+#  value = local.app_private_subnets[0].id
+#}
