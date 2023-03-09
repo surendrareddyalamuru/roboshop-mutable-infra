@@ -8,7 +8,7 @@ vpc = {
         name = "frontend"
         attach_to = "ngw"
       }
-      backend = {
+      database = {
         cidr_block = [ "10.0.2.0/24", "10.0.3.0/24" ]
         name = "backend"
         attach_to = "ngw"
