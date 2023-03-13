@@ -10,13 +10,13 @@ module "vpc" {
   management_vpc = var.management_vpc
 }
 
-module "docdb" {
-  for_each = var.docdb
-  source = "github.com/surendrareddyalamuru/tf-module-docdb"
-  docdb = var.docdb
-  env = var.env
-  subnets = local.database_private_subnets[*].id
-}
+#module "docdb" {
+#  for_each = var.docdb
+#  source = "github.com/surendrareddyalamuru/tf-module-docdb"
+#  docdb = var.docdb
+#  env = var.env
+#  subnets = local.database_private_subnets[*].id
+#}
 
 
 #output "database_private_subnets" {
