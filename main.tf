@@ -45,6 +45,19 @@ module "elasticache" {
   num_cache_nodes = each.value.num_cache_nodes
 }
 
+module "rabbitmq" {
+  for_each = var.rabbitmq
+  source   = "github.com/surendrareddyalamuru/tf-module-rabbitmq"
+  name     = each.key
+  env      = var.env
+  subnets  = flatten([for i, j in module.vpc : j.private_subnets["backend"]["subnets"][*].id])
+  name            = each.key
+  instance_type   = each.value.instance_type
+}
+
+
+
+
 
 
 #output "database_private_subnets" {

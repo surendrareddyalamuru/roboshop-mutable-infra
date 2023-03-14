@@ -14,3 +14,7 @@ rds:
 elasticache:
     source:  "https://github.com/surendrareddyalamuru/tf-module-elasticache"
     version: "main"
+
+rabbitmq:
+    source:  "https://github.com/surendrareddyalamuru/tf-module-rabbitmq"
+    version: "main"

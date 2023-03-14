@@ -63,5 +63,11 @@ elasticache = {
 
 }
 
+rabbitmq = {
+  mq1 = {
+    instance_type = "t3.micro"
+  }
+}
+
 env = "dev"
 
