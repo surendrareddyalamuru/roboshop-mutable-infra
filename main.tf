@@ -33,5 +33,5 @@ module "vpc" {
 #}
 
 output "app_subnets" {
-  value = [for i, j in module.vpc : j.private_subnets["app"]["subnets"]]
+  value = [for i, j in module.vpc : j.private_subnets["app"]["subnets"][*].id]
 }
