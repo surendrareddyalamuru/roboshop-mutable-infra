@@ -20,13 +20,19 @@ module "docdb" {
 }
 
 #
-#module "rds" {
-#  for_each = var.docdb
-#  source = "github.com/surendrareddyalamuru/tf-module-rds"
-#  docdb = var.rds
-#  env = var.env
-#  subnets = local.database_private_subnets[*].id
-#}
+module "rds" {
+  for_each = var.rds
+  source = "github.com/surendrareddyalamuru/tf-module-rds"
+  name = each.key
+  env = var.env
+  subnets = flatten([for i, j in module.vpc : j.private_subnets["backend"]["subnets"][*].id])
+  allocated_storage   = each.value.allocated_storage
+  engine              = each.value.engine
+  engine_version      = each.value.engine_version
+  instance_class      = each.value.instance_class
+  skip_final_snapshot = each.value.skip_final_snapshot
+  parameter_group_name = each.value.parameter_group_name
+}
 
 
 #output "database_private_subnets" {
