@@ -32,6 +32,6 @@ module "vpc" {
 #  value = local.database_private_subnets[*].id
 #}
 
-output "subnets" {
-  value = lookup(module.vpc, "private_subnets", null)
-}
+#output "subnets" {
+#  value = lookup(module.vpc, "private_subnets", null)
+#}
