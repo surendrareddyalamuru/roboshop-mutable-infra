@@ -33,5 +33,5 @@ module "vpc" {
 #}
 
 output "subnets" {
-  value = module.vpc
+  value = lookup(module.vpc, "private_subnets", null)
 }

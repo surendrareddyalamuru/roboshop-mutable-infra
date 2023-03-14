@@ -6,3 +6,7 @@ vpc:
 docdb:
     source:  "https://github.com/surendrareddyalamuru/tf-module-docdb"
     version: "main"
+
+rds:
+    source:  "https://github.com/surendrareddyalamuru/tf-module-rds"
+    version: "main"
