@@ -9,14 +9,15 @@ module "vpc" {
   env = var.env
   management_vpc = var.management_vpc
 }
-#
-#module "docdb" {
-#  for_each = var.docdb
-#  source = "github.com/surendrareddyalamuru/tf-module-docdb"
-#  docdb = var.docdb
-#  env = var.env
-#  subnets = local.database_private_subnets[*].id
-#}
+
+module "docdb" {
+  for_each = var.docdb
+  source = "github.com/surendrareddyalamuru/tf-module-docdb"
+  engine = each.value.engine
+  name = each.key
+  env = var.env
+  subnets = flatten([for i, j in module.vpc : j.private_subnets["backend"]["subnets"][*].id])
+}
 
 #
 #module "rds" {
