@@ -51,7 +51,6 @@ module "rabbitmq" {
   name     = each.key
   env      = var.env
   subnets  = flatten([for i, j in module.vpc : j.private_subnets["backend"]["subnets"][*].id])
-  name            = each.key
   instance_type   = each.value.instance_type
 }
 
