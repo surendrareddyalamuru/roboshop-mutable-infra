@@ -31,8 +31,20 @@ module "rds" {
   engine_version      = each.value.engine_version
   instance_class      = each.value.instance_class
   skip_final_snapshot = each.value.skip_final_snapshot
-  parameter_group_name = each.value.parameter_group_name
 }
+
+module "elasticache" {
+  for_each = var.elasticache
+  source   = "github.com/surendrareddyalamuru/tf-module-elasticache"
+  name     = each.key
+  env      = var.env
+  subnets  = flatten([for i, j in module.vpc : j.private_subnets["backend"]["subnets"][*].id])
+  engine          = each.value.engine
+  engine_version  = each.value.engine_version
+  node_type       = each.value.node_type
+  num_cache_nodes = each.value.num_cache_nodes
+}
+
 
 
 #output "database_private_subnets" {
