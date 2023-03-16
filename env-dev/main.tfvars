@@ -46,7 +46,7 @@ rds = {
   db1 = {
     allocated_storage   = 10
     engine              = "aurora-mysql"
-    engine_version      = "5.7.mysql_aurora.2.10.2"
+    engine_version      = "5.7.mysql_aurora.2.11.0"
     instance_class      = "db.t3.micro"
     skip_final_snapshot = true
 
