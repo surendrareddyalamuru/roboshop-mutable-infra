@@ -11,3 +11,5 @@ variable "rds" {}
 variable "elasticache" {}
 
 variable "rabbitmq" {}
+
+variable "apps" {}
