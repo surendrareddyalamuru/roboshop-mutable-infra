@@ -82,4 +82,4 @@ apps = {
   }
 }
 
-BASTION_NODE = "44.213.125.167"
+BASTION_NODE = "172.31.12.25"
