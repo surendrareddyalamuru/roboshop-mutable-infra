@@ -54,18 +54,18 @@ module "rabbitmq" {
   instance_type   = each.value.instance_type
 }
 
-#module "apps" {
-#  for_each             = var.apps
-#  source   = "github.com/surendrareddyalamuru/tf-module-mutable-app-setup"
-#  subnets  = flatten([for i, j in module.vpc : j.private_subnets["app"]["subnets"][*].id])
-#  env = var.env
-#  name                 = each.key
-#  instance_type        = each.value.instance_type
-#  min_size             = each.value.min_size
-#  max_size             = each.value.max_size
-#  vpc_id               = element([for i, j in module.vpc : j.vpc_id], 0)
-#  BASTION_NODE         = var.BASTION_NODE
-#}
+module "apps" {
+  for_each             = var.apps
+  source   = "github.com/surendrareddyalamuru/tf-module-mutable-app-setup"
+  subnets  = flatten([for i, j in module.vpc : j.private_subnets["app"]["subnets"][*].id])
+  env = var.env
+  name                 = each.key
+  instance_type        = each.value.instance_type
+  min_size             = each.value.min_size
+  max_size             = each.value.max_size
+  vpc_id               = element([for i, j in module.vpc : j.vpc_id], 0)
+  BASTION_NODE         = var.BASTION_NODE
+}
 
 
 
