@@ -13,3 +13,5 @@ variable "elasticache" {}
 variable "rabbitmq" {}
 
 variable "apps" {}
+
+variable "BASTION_NODE" {}
