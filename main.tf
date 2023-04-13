@@ -66,6 +66,9 @@ module "apps" {
   max_size             = each.value.max_size
   vpc_id               = element([for i, j in module.vpc : j.vpc_id], 0)
   BASTION_NODE         = var.BASTION_NODE
+  app_port_no          = each.value.app_port_no
+  vpc_cidr             = element([for i, j in module.vpc : j.vpc_cidr], 0)
+  PROMETHEUS_NODE      = var.PROMETHEUS_NODE
 }
 
 
