@@ -83,3 +83,4 @@ apps = {
 }
 
 BASTION_NODE = "172.31.12.25/32"
+private_zone_id = "Z038950339R30I8446RWR"
