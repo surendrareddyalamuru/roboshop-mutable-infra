@@ -58,7 +58,7 @@ module "rabbitmq" {
 module "apps" {
   for_each             = var.apps
   source   = "github.com/surendrareddyalamuru/tf-module-mutable-app-setup"
-  subnets  = flatten([for i, j in module.vpc : j.private_subnets["app"]["subnets"][*].id])
+  subnets  = each.key == "frontend" ? flatten([for i, j in module.vpc : j.private_subnets["frontend"]["subnets"][*].id]) : flatten([for i, j in module.vpc : j.private_subnets["app"]["subnets"][*].id])
   env = var.env
   name                 = each.key
   instance_type        = each.value.instance_type
