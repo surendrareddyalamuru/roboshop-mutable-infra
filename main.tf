@@ -75,6 +75,7 @@ module "apps" {
   private_zone_id      = var.private_zone_id
   public_zone_id       = var.public_zone_id
   public_dns_name      = try(each.value.public_dns_name, null)
+  ACM_ARN              = var.ACM_ARN
 }
 
 module "alb" {

@@ -136,3 +136,6 @@ BASTION_NODE = "172.31.12.25/32"
 private_zone_id = "Z038950339R30I8446RWR"
 public_zone_id = "Z01347193MNE0I2QTZ9TX"
 PROMETHEUS_NODE = "172.31.7.10/32"
+
+
+ACM_ARN = "arn:aws:acm:us-east-1:762942456166:certificate/b1be80cd-448e-4b4b-b206-b7bbfdeb4ec2"
