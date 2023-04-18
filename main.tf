@@ -20,19 +20,19 @@ module "docdb" {
   subnets = flatten([for i, j in module.vpc : j.private_subnets["backend"]["subnets"][*].id])
 }
 
-#
-#module "rds" {
-#  for_each = var.rds
-#  source = "github.com/surendrareddyalamuru/tf-module-rds"
-#  name = each.key
-#  env = var.env
-#  subnets = flatten([for i, j in module.vpc : j.private_subnets["backend"]["subnets"][*].id])
-#  allocated_storage   = each.value.allocated_storage
-#  engine              = each.value.engine
-#  engine_version      = each.value.engine_version
-#  instance_class      = each.value.instance_class
-#  skip_final_snapshot = each.value.skip_final_snapshot
-#}
+
+module "rds" {
+  for_each = var.rds
+  source = "github.com/surendrareddyalamuru/tf-module-rds"
+  name = each.key
+  env = var.env
+  subnets = flatten([for i, j in module.vpc : j.private_subnets["backend"]["subnets"][*].id])
+  allocated_storage   = each.value.allocated_storage
+  engine              = each.value.engine
+  engine_version      = each.value.engine_version
+  instance_class      = each.value.instance_class
+  skip_final_snapshot = each.value.skip_final_snapshot
+}
 
 module "elasticache" {
   for_each = var.elasticache
