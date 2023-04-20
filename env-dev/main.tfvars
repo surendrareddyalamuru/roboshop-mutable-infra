@@ -39,6 +39,12 @@ management_vpc = {
 docdb = {
   db1 = {
     engine = "docdb"
+    skip_final_snapshot = true
+    nodes = {
+      one = {
+        instance_class = "db.t3.medium"
+      }
+    }
   }
 }
 
