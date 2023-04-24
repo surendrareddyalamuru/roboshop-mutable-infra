@@ -55,6 +55,11 @@ rds = {
     engine_version      = "5.7.mysql_aurora.2.11.1"
     instance_class      = "db.t3.micro"
     skip_final_snapshot = true
+    nodes = {
+      one = {
+        instance_class = "db.t3.small"
+      }
+    }
 
   }
 }
