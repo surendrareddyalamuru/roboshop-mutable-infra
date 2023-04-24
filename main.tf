@@ -49,6 +49,8 @@ module "elasticache" {
   engine_version  = each.value.engine_version
   node_type       = each.value.node_type
   num_cache_nodes = each.value.num_cache_nodes
+  vpc_cidr = element([for i, j in module.vpc : j.vpc_cidr], 0)
+  vpc_id   = element([for i, j in module.vpc : j.vpc_id], 0)
 }
 
 module "rabbitmq" {
