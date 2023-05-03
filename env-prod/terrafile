@@ -1,3 +1,28 @@
 vpc:
     source:  "https://github.com/surendrareddyalamuru/tf-module-vpc"
-    version: "1.0.0"
+    version: "main"
+
+
+docdb:
+    source:  "https://github.com/surendrareddyalamuru/tf-module-docdb"
+    version: "main"
+
+rds:
+    source:  "https://github.com/surendrareddyalamuru/tf-module-rds"
+    version: "main"
+
+elasticache:
+    source:  "https://github.com/surendrareddyalamuru/tf-module-elasticache"
+    version: "main"
+
+rabbitmq:
+    source:  "https://github.com/surendrareddyalamuru/tf-module-rabbitmq"
+    version: "main"
+
+app-setup:
+    source:  "https://github.com/surendrareddyalamuru/tf-module-mutable-app-setup"
+    version: "main"
+
+alb:
+    source:  "https://github.com/surendrareddyalamuru/tf-module-alb"
+    version: "main"
